@@ -1,0 +1,21 @@
+{
+  "name": "qa-cypress-techhnicaltesttj-anindita-paramarta",
+  "version": "1.0.0",
+  "description": "Cypress automation tests for DemoQA Web Tables bulk registration.",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:positive": "cypress run --spec cypress/e2e/webtables/positive.cy.js",
+    "cy:run:negative": "cypress run --spec cypress/e2e/webtables/negative.cy.js",
+    "cy:run:droppable": "cypress run --spec cypress/e2e/webtables/droppable.cy.js",
+    "cy:run:resizable": "cypress run --spec cypress/e2e/webtables/resizable.cy.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^15.18.0",
+    "neat-csv": "^7.0.0"
+  }
+}
