@@ -1,13 +1,17 @@
 class WebTablesPage {
 
+ // Navigates to the Web Tables page
   visit() {
     cy.visit('/webtables')
   }
 
+
+  // Opens the Add User registration form
   openRegistrationForm() {
     cy.get('#addNewRecordButton').click()
   }
 
+  // Fills the registration form with user data
   fillForm(user) {
     cy.get('#firstName').type(user.firstName)
     cy.get('#lastName').type(user.lastName)
@@ -17,24 +21,29 @@ class WebTablesPage {
     cy.get('#department').type(user.department)
   }
 
+  // Submits the registration form
   submit() {
     cy.get('#submit').click()
   }
 
+   // Searches for a user in the Web Tables
   searchUser(keyword) {
     cy.get('#searchBox').clear().type(keyword)
   }
 
+  // Clears the search field
   clearSearch() {
     cy.get('#searchBox').clear()
   }
 
+  // Completes the user registration workflow
   addUser(user) {
     this.openRegistrationForm()
     this.fillForm(user)
     this.submit()
   }
 
+  // Verifies that the registered user is displayed in the table
   verifyUser(user) {
     this.searchUser(user.email)
 
@@ -48,6 +57,7 @@ class WebTablesPage {
     this.clearSearch()
   }
 
+    // Verifies that the First Name field is required
   assertFirstNameIsRequired() {
     cy.get('#firstName:invalid').should('exist')
   }

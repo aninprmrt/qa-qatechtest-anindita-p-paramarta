@@ -1,17 +1,17 @@
 class DroppablePage {
-
+  // Navigates to the Droppable page
   visit() {
     cy.visit('/droppable')
   }
-
+  // Waits until the draggable element is ready for interaction
   waitUntilReady() {
     cy.window().its('$.fn.draggable').should('be.a', 'function')
     cy.get('#draggable').should('have.class', 'ui-draggable')
   }
-
+  // Drags the draggable element into the drop zone
   dragToDropZone() {
     this.waitUntilReady()
-
+    
     cy.window().then((win) => {
       const $ = win.$
       const $draggable = $('#draggable')
@@ -43,6 +43,7 @@ class DroppablePage {
     })
   }
 
+  // Verifies that the element has been dropped successfully
   verifyDropped() {
     cy.get('#droppable').should('have.text', 'Dropped!')
   }

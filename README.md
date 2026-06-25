@@ -1,6 +1,6 @@
 # Cypress Technical Test
 
-Automation test project for DemoQA using Cypress, Page Object Model, and CSV-based data-driven testing.
+Automation testing project developed for the PT Transportasi Jakarta Technical Test. The project uses Cypress with the Page Object Model (POM) pattern and CSV-based data-driven testing to automate user registration on the DemoQA website.
 
 ## Scope
 
@@ -34,6 +34,9 @@ cypress/
   support/
     e2e.js
     commands.js
+cypress.config.js
+package.json
+package-lock.json
 ```
 
 ## Prerequisites
@@ -85,5 +88,16 @@ The positive test reads the CSV fixture and parses it through a Cypress task def
 ## Notes
 
 - `baseUrl` is configured as `https://demoqa.com` in `cypress.config.js`
+- Test data is stored in CSV format
+- The project follows the Page Object Model (POM) design patter
 - Viewport is set to `1280 x 720`
 - Video recording is disabled
+
+## Test Scenarios
+
+| Test | Description |
+|------|-------------|
+| Positive | Register multiple users from CSV and verify each record |
+| Negative | Verify that the registration form cannot be submitted when the required field is empty |
+| Droppable | Drag an element into the drop area and verify success |
+| Resizable | Resize the restricted element to 400 × 200 and verify the final size |

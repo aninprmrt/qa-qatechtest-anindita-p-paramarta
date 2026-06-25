@@ -1,9 +1,11 @@
 class ResizablePage {
 
+  // Navigates to the Resizable page
   visit() {
     cy.visit('/resizable')
   }
 
+  // Resizes the restricted box to the specified dimensions
   resizeRestrictedBox(width, height) {
     cy.get('#resizableBoxWithRestriction').then(($box) => {
       const boxRect = $box[0].getBoundingClientRect()
@@ -36,6 +38,7 @@ class ResizablePage {
     })
   }
 
+  // Verifies that the restricted box has the specified size
   verifyRestrictedBoxSize(width, height) {
     cy.get('#resizableBoxWithRestriction').should(($box) => {
       const boxRect = $box[0].getBoundingClientRect()
